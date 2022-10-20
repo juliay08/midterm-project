@@ -119,6 +119,15 @@ body, html {
   height: 100%;
 }
 
+img {
+  transition: transform .5s;
+}
+
+img:hover {
+  transition: transform .5s;
+  transform: scale(1.1);
+}
+
 #infoAdidas {
   background-color: #0171bb;
   color: white;
@@ -149,6 +158,31 @@ body, html {
   font-size: 18px;
   margin: 30px;
   border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+/*button animation - used w3schools (https://www.w3schools.com/howto/howto_css_animate_buttons.asp) for reference*/
+.button span {
+  position: relative; /*places the element relative to its current position without changing the layout around it*/
+  transition: 0.4s; /*hover animation/transition effect spans over 0.4 seconds */
+}
+
+.button span:after {
+  content: '\00bb'; /*this is the css entity for right-pointing double angle quotation mark*/
+  position: absolute; /*this type of positioning allows me to set the location as I define it*/
+  opacity: 0; /*this changes the opacity of the arrows to not be seen when the button is not being hovered over yet*/
+  right: -10px; /*this defines the position in which the arrows appear/come in from*/
+  transition: 0.4s; /*hover animation disappearing effect spans over 0.4s*/
+}
+
+.button:hover span {
+  padding-right: 20px; /*this defines the padding that is applied between the text of the button and the arrows*/
+}
+
+.button:hover span:after {
+  opacity: 1; /*this allows the arrows to appear in full opacity when the button is being hovered over*/
+  right: 0; /*this allows the button to return back to normal appearance when hovered off*/
 }
 
 .footer {
@@ -156,7 +190,7 @@ body, html {
 }
 
 .footerLinks {
-  padding: 2%;
+  padding: 4%;
 }
 
 .footerLinks a {
@@ -165,3 +199,4 @@ body, html {
 
 .footerLinks a:visited {
   color: #bebebe;
+}
